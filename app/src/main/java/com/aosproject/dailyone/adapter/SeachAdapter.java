@@ -64,6 +64,7 @@ public class SeachAdapter extends BaseAdapter {
         }
 
         TextView dateTextView = convertView.findViewById(R.id.searched_date_text);
+        dateTextView.setText(diaries.get(position).getDate().substring(0,10));
 
         TextView contentTextView = convertView.findViewById(R.id.searched_content);
         contentTextView.setText(diaries.get(position).getContent());
