@@ -64,7 +64,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle("캘린더");
+        getActivity().setTitle("달력");
         connectGoData();
     }
 

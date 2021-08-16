@@ -60,7 +60,7 @@ public class SearchFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle("검색");
+        getActivity().setTitle("일기 검색");
     }
 
     private void searchingDiary(int condition) {
