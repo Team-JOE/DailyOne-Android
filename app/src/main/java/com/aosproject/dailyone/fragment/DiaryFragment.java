@@ -43,6 +43,7 @@ public class DiaryFragment extends Fragment {
     int dbId = 0, dbEmoji = 0; // happy = 1, sad = 2, angry = 3, soso = 4
     String diaryContent, dbDate, today;
     String query;
+    boolean isShowKeyboard = false;
 
     @Nullable
     @Override
@@ -245,9 +246,17 @@ public class DiaryFragment extends Fragment {
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                edtContent.clearFocus();
+
                 InputMethodManager mInputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                mInputMethodManager.hideSoftInputFromWindow(edtContent.getWindowToken(), 0);
+                if (isShowKeyboard) {
+                    edtContent.clearFocus();
+//                    InputMethodManager mInputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    mInputMethodManager.hideSoftInputFromWindow(edtContent.getWindowToken(), 0);
+                    isShowKeyboard = false;
+                }else{
+                    mInputMethodManager.showSoftInput(edtContent, 0);
+                    isShowKeyboard = true;
+                }
                 return false;
             }
         });
